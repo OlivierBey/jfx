@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<!-- 1. AnchorPane element verwijderen en ui recreeeren met onze SimpleUI code-->
+<!-- <AnchorPane xmlns:fx="http://javafx.com/fxml/1">
+	TODO Add Nodes
+</AnchorPane> -->
+
+<HBox alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml_7.SimpleUIController"> <!-- 3. alignment toevoegen, we kunnen attributen van de element tags gebruiken  -->
+	<children>
+		<Label text="User Name" />
+		<TextField fx:id="textfield" /> <!-- 6. Als we elementen willen linken, gaan we dat doen door een id te geven aan dat element met fx:id -->
+		<Button text="connect" />
+		<!-- <VBox spacing="10"> 2. VBOx toevoegen, children tag is optional moet niet. 4. spacing en miWidth bij btn zetten 
+			 7. toevoegen shizzle hieronder, zo kunnen we data binden aan elementen
+			maar error omdat we geen namespace aan fx hebben gegeven
+			<Label text="${textfield.text}" />
+			<Label text="goes down"/> 
+			<Label> 5. dit hieronder tonen en dan weer wegdoen.
+				<text>This goes down</text>
+			</Label>
+			<Button minWidth="150" text="Down" />
+			<Button text="Further down" />
+		</VBox>	 -->			
+		
+		
+		
+		
+		<!-- 8. gridpane gebruiken ipv vbox -->
+		<!-- als we nu text invoeren zult ge zien dat de breedte van onze colom groter wordt. -->
+		<!-- 9. wat moeten we doen als ons label de volgende kolom ook inpakt? ColumnSpan attribute gebruiken. -->
+		<!-- 10. Laten we een controller klasse maken. -->
+		<GridPane>
+			<Label text="${textfield.text}" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1" /> <!--  9. elke element moet in zeijn eigen specifieke column en index geplaatst worden-->
+			<Button minWidth="150" text="Down" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+			<Button text="Further down" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+         <RadioButton mnemonicParsing="false" text="RadioButton" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <font>
+               <Font size="16.0" />
+            </font>
+         </RadioButton>
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+		</GridPane>
+	</children>
+</HBox>
